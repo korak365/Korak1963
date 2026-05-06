@@ -1,0 +1,21 @@
+{
+    "actorOutputSchemaVersion": 1,
+    "title": "Output of Agentic World Model Scraper",
+    "properties": {
+        "overview": {
+            "type": "string",
+            "title": "Collected 3D model metadata",
+            "template": "{{links.apiDefaultDatasetUrl}}/items?view=overview"
+        },
+        "itemCount": {
+            "type": "number",
+            "title": "Total models collected",
+            "template": "{{run.usageInfo.items}}"
+        },
+        "previewCount": {
+            "type": "number",
+            "title": "Preview images saved",
+            "template": "{{run.usageInfo.keyValueStoreEntries}}"
+        }
+    }
+}

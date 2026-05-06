@@ -1,0 +1,28 @@
+{
+    "name": "world-model-scraper",
+    "version": "0.0.1",
+    "type": "module",
+    "description": "Scrapes 3D model sites (Sketchfab) to collect metadata for spatial AI datasets. Prefers official API when available.",
+    "engines": {
+        "node": ">=20.0.0"
+    },
+    "dependencies": {
+        "apify": "^3.4.2",
+        "crawlee": "^3.13.8"
+    },
+    "devDependencies": {
+        "@apify/eslint-config": "^1.0.0",
+        "eslint": "^9.29.0",
+        "eslint-config-prettier": "^10.1.5",
+        "prettier": "^3.5.3"
+    },
+    "scripts": {
+        "start": "node src/main.js",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "lint": "eslint",
+        "lint:fix": "eslint --fix"
+    },
+    "author": "World Model Scraper",
+    "license": "ISC"
+}

@@ -1,0 +1,37 @@
+{
+    "actorSpecification": 1,
+    "fields": {
+        "modelId": { "type": "string", "description": "Model unique identifier (Sketchfab UID or site ID)" },
+        "title": { "type": "string", "description": "Model title" },
+        "author": { "type": "string", "description": "Author/creator name" },
+        "description": { "type": "string", "description": "Model description" },
+        "tags": { "type": "array", "description": "Tags/categories" },
+        "license": { "type": "string", "description": "License information (if available)" },
+        "formats": { "type": "array", "description": "Available file formats / downloadable assets (best-effort)" },
+        "likes": { "type": "integer", "description": "Likes / hearts (best-effort)" },
+        "views": { "type": "integer", "description": "Views count (if available)" },
+        "modelUrl": { "type": "string", "description": "URL to the model page" },
+        "previewUrl": { "type": "string", "description": "URL to preview thumbnail" },
+        "previewKey": { "type": "string", "description": "Key-Value key where preview image is saved (if downloaded)" },
+        "fileKeys": { "type": "array", "description": "Keys of downloaded model files (if enabled and permitted)" },
+        "timestamp": { "type": "string", "description": "When the item was collected (ISO 8601)" }
+    },
+    "views": {
+        "overview": {
+            "title": "Models Overview",
+            "transformation": {
+                "fields": ["modelId", "title", "author", "likes", "modelUrl"]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "modelId": { "label": "ID", "format": "text" },
+                    "title": { "label": "Title", "format": "text" },
+                    "author": { "label": "Author", "format": "text" },
+                    "likes": { "label": "Likes", "format": "number" },
+                    "modelUrl": { "label": "URL", "format": "link" }
+                }
+            }
+        }
+    }
+}

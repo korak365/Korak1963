@@ -1,0 +1,68 @@
+{
+    "title": "Input schema for Agentic World Model Scraper",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "startUrls": {
+            "title": "Start URLs",
+            "type": "array",
+            "description": "Seed pages or model listing pages (e.g., Sketchfab search or user pages). Prefer API endpoints when available.",
+            "editor": "requestListSources",
+            "prefill": [
+                { "url": "https://sketchfab.com/search?q=architecture&type=models" }
+            ]
+        },
+        "useApi": {
+            "title": "Use official API when available",
+            "type": "boolean",
+            "description": "Prefer fetching model metadata from the official API if an API token is provided.",
+            "default": true
+        },
+        "apiToken": {
+            "title": "API Token (Sketchfab or other)",
+            "type": "string",
+            "description": "API token to access official endpoints (preferred). Leave empty to fall back to HTML scraping.",
+            "default": ""
+        },
+        "maxRequestsPerCrawl": {
+            "title": "Max Requests per Crawl",
+            "type": "integer",
+            "description": "Maximum number of pages/requests for the crawl.",
+            "default": 500,
+            "minimum": 1,
+            "maximum": 10000
+        },
+        "downloadPreview": {
+            "title": "Download preview images",
+            "type": "boolean",
+            "description": "Save model preview thumbnails to Key-Value Store (may increase storage).",
+            "default": true
+        },
+        "downloadModelFiles": {
+            "title": "Download model files (dangerous)",
+            "type": "boolean",
+            "description": "DO NOT enable unless you have explicit permission and license clearance. If enabled, attempts to download allowed formats.",
+            "default": false
+        },
+        "minLikes": {
+            "title": "Minimum likes",
+            "type": "integer",
+            "description": "Only include models with at least this many likes (best-effort).",
+            "default": 0,
+            "minimum": 0
+        },
+        "siteAllowList": {
+            "title": "Site allow list",
+            "type": "array",
+            "description": "If set, only follow links inside these hostnames (recommended to restrict scope).",
+            "default": ["sketchfab.com"]
+        },
+        "includeSubpages": {
+            "title": "Include subpages",
+            "type": "boolean",
+            "description": "Follow links discovered on listing pages (site-limited by default).",
+            "default": true
+        }
+    },
+    "required": ["startUrls"]
+}
